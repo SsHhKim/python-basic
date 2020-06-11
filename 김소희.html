@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>13, 14장 연습문제</title>
+<title>6_Naver_movie-개인</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13092,17 +13092,20 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Naver-&#50689;&#54868;-&#45348;&#54000;&#51596;-&#54217;&#51216;-&#49688;&#51665;---&#51089;&#51008;-&#50500;&#50472;&#46308;,-2019">Naver &#50689;&#54868; &#45348;&#54000;&#51596; &#54217;&#51216; &#49688;&#51665; - &#51089;&#51008; &#50500;&#50472;&#46308;, 2019<a class="anchor-link" href="#Naver-&#50689;&#54868;-&#45348;&#54000;&#51596;-&#54217;&#51216;-&#49688;&#51665;---&#51089;&#51008;-&#50500;&#50472;&#46308;,-2019">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># minus 표시</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;Malgun Gothic&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span> 
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
 </pre></div>
 
     </div>
@@ -13112,202 +13115,34 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;high_school_2019.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://movie.naver.com&#39;</span>
+<span class="n">url_sub</span> <span class="o">=</span> <span class="s1">&#39;/movie/bi/mi/point.nhn?code=186613&#39;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url_base</span> <span class="o">+</span> <span class="n">url_sub</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[89]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>지역</th>
-      <th>학교명</th>
-      <th>1학년 학급수</th>
-      <th>1학년 학생수</th>
-      <th>2학년 학급수</th>
-      <th>2학년 학생수</th>
-      <th>3학년 학급수</th>
-      <th>3학년 학생수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>서울특별시 강남구</td>
-      <td>국립국악고등학교</td>
-      <td>5</td>
-      <td>150</td>
-      <td>5</td>
-      <td>149</td>
-      <td>5</td>
-      <td>143</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>서울특별시 성북구</td>
-      <td>서울대학교사범대학부설고등학교</td>
-      <td>8</td>
-      <td>239</td>
-      <td>8</td>
-      <td>228</td>
-      <td>8</td>
-      <td>270</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>서울특별시 금천구</td>
-      <td>국립전통예술고등학교</td>
-      <td>6</td>
-      <td>182</td>
-      <td>6</td>
-      <td>174</td>
-      <td>6</td>
-      <td>169</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>서울특별시 송파구</td>
-      <td>가락고등학교</td>
-      <td>11</td>
-      <td>282</td>
-      <td>11</td>
-      <td>262</td>
-      <td>11</td>
-      <td>288</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>서울특별시 강동구</td>
-      <td>강동고등학교</td>
-      <td>8</td>
-      <td>210</td>
-      <td>8</td>
-      <td>183</td>
-      <td>8</td>
-      <td>221</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2393</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주고등학교</td>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>305</td>
-    </tr>
-    <tr>
-      <th>2394</th>
-      <td>제주특별자치도 서귀포시</td>
-      <td>서귀포산업과학고등학교</td>
-      <td>8</td>
-      <td>151</td>
-      <td>8</td>
-      <td>141</td>
-      <td>8</td>
-      <td>135</td>
-    </tr>
-    <tr>
-      <th>2395</th>
-      <td>제주특별자치도 서귀포시</td>
-      <td>성산고등학교</td>
-      <td>4</td>
-      <td>76</td>
-      <td>5</td>
-      <td>91</td>
-      <td>5</td>
-      <td>103</td>
-    </tr>
-    <tr>
-      <th>2396</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주외국어고등학교</td>
-      <td>4</td>
-      <td>99</td>
-      <td>4</td>
-      <td>95</td>
-      <td>4</td>
-      <td>92</td>
-    </tr>
-    <tr>
-      <th>2397</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주제일고등학교부설방송통신고등학교</td>
-      <td>5</td>
-      <td>116</td>
-      <td>5</td>
-      <td>98</td>
-      <td>5</td>
-      <td>126</td>
-    </tr>
-  </tbody>
-</table>
-<p>2398 rows × 8 columns</p>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="iframe&#51032;-src-&#51452;&#49548;&#44050;&#51012;-&#50619;&#50612;&#50556;-&#54632;">iframe&#51032; src &#51452;&#49548;&#44050;&#51012; &#50619;&#50612;&#50556; &#54632;<a class="anchor-link" href="#iframe&#51032;-src-&#51452;&#49548;&#44050;&#51012;-&#50619;&#50612;&#50556;-&#54632;">&#182;</a></h1>
 </div>
 </div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 13장</span>
-
-<span class="c1"># 3.</span>
-
-<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]]</span>
-
-<span class="n">df1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ifr_url</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;iframe&#39;</span><span class="p">)[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span>
+<span class="n">ifr_url</span>
 </pre></div>
 
     </div>
@@ -13320,149 +13155,13 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[90]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>1학년 학생수</th>
-      <th>2학년 학생수</th>
-      <th>3학년 학생수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>150</td>
-      <td>149</td>
-      <td>143</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>239</td>
-      <td>228</td>
-      <td>270</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>182</td>
-      <td>174</td>
-      <td>169</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>282</td>
-      <td>262</td>
-      <td>288</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>210</td>
-      <td>183</td>
-      <td>221</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2393</th>
-      <td>279</td>
-      <td>279</td>
-      <td>305</td>
-    </tr>
-    <tr>
-      <th>2394</th>
-      <td>151</td>
-      <td>141</td>
-      <td>135</td>
-    </tr>
-    <tr>
-      <th>2395</th>
-      <td>76</td>
-      <td>91</td>
-      <td>103</td>
-    </tr>
-    <tr>
-      <th>2396</th>
-      <td>99</td>
-      <td>95</td>
-      <td>92</td>
-    </tr>
-    <tr>
-      <th>2397</th>
-      <td>116</td>
-      <td>98</td>
-      <td>126</td>
-    </tr>
-  </tbody>
-</table>
-<p>2398 rows × 3 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[91]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0       442
-1       737
-2       525
-3       832
-4       614
-       ... 
-2393    863
-2394    427
-2395    270
-2396    286
-2397    340
-Length: 2398, dtype: int64</pre>
+<pre>&#39;/movie/bi/mi/pointWriteFormList.nhn?code=186613&amp;type=after&amp;isActualPointWriteExecute=false&amp;isMileageSubscriptionAlready=false&amp;isMileageSubscriptionReject=false&#39;</pre>
 </div>
 
 </div>
@@ -13473,12 +13172,33 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;총 학생수&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="n">url_base</span> <span class="o">+</span> <span class="n">ifr_url</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">df</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#51069;&#51012;-&#54168;&#51060;&#51648;-&#49688;-&#44228;&#49328;">&#51069;&#51012; &#54168;&#51060;&#51648; &#49688; &#44228;&#49328;<a class="anchor-link" href="#&#51069;&#51012;-&#54168;&#51060;&#51648;-&#49688;-&#44228;&#49328;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">)</span>
+<span class="n">count</span>
 </pre></div>
 
     </div>
@@ -13491,421 +13211,13 @@ Length: 2398, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[92]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>지역</th>
-      <th>학교명</th>
-      <th>1학년 학급수</th>
-      <th>1학년 학생수</th>
-      <th>2학년 학급수</th>
-      <th>2학년 학생수</th>
-      <th>3학년 학급수</th>
-      <th>3학년 학생수</th>
-      <th>총 학생수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>서울특별시 강남구</td>
-      <td>국립국악고등학교</td>
-      <td>5</td>
-      <td>150</td>
-      <td>5</td>
-      <td>149</td>
-      <td>5</td>
-      <td>143</td>
-      <td>442</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>서울특별시 성북구</td>
-      <td>서울대학교사범대학부설고등학교</td>
-      <td>8</td>
-      <td>239</td>
-      <td>8</td>
-      <td>228</td>
-      <td>8</td>
-      <td>270</td>
-      <td>737</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>서울특별시 금천구</td>
-      <td>국립전통예술고등학교</td>
-      <td>6</td>
-      <td>182</td>
-      <td>6</td>
-      <td>174</td>
-      <td>6</td>
-      <td>169</td>
-      <td>525</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>서울특별시 송파구</td>
-      <td>가락고등학교</td>
-      <td>11</td>
-      <td>282</td>
-      <td>11</td>
-      <td>262</td>
-      <td>11</td>
-      <td>288</td>
-      <td>832</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>서울특별시 강동구</td>
-      <td>강동고등학교</td>
-      <td>8</td>
-      <td>210</td>
-      <td>8</td>
-      <td>183</td>
-      <td>8</td>
-      <td>221</td>
-      <td>614</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2393</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주고등학교</td>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>305</td>
-      <td>863</td>
-    </tr>
-    <tr>
-      <th>2394</th>
-      <td>제주특별자치도 서귀포시</td>
-      <td>서귀포산업과학고등학교</td>
-      <td>8</td>
-      <td>151</td>
-      <td>8</td>
-      <td>141</td>
-      <td>8</td>
-      <td>135</td>
-      <td>427</td>
-    </tr>
-    <tr>
-      <th>2395</th>
-      <td>제주특별자치도 서귀포시</td>
-      <td>성산고등학교</td>
-      <td>4</td>
-      <td>76</td>
-      <td>5</td>
-      <td>91</td>
-      <td>5</td>
-      <td>103</td>
-      <td>270</td>
-    </tr>
-    <tr>
-      <th>2396</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주외국어고등학교</td>
-      <td>4</td>
-      <td>99</td>
-      <td>4</td>
-      <td>95</td>
-      <td>4</td>
-      <td>92</td>
-      <td>286</td>
-    </tr>
-    <tr>
-      <th>2397</th>
-      <td>제주특별자치도 제주시</td>
-      <td>제주제일고등학교부설방송통신고등학교</td>
-      <td>5</td>
-      <td>116</td>
-      <td>5</td>
-      <td>98</td>
-      <td>5</td>
-      <td>126</td>
-      <td>340</td>
-    </tr>
-  </tbody>
-</table>
-<p>2398 rows × 9 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">3.</span>
-
-<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span>       <span class="c1"># 3번 문제 답</span>
-<span class="n">df2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[93]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>1학년 학급수</th>
-      <th>1학년 학생수</th>
-      <th>2학년 학급수</th>
-      <th>2학년 학생수</th>
-      <th>3학년 학급수</th>
-      <th>3학년 학생수</th>
-      <th>총 학생수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5</td>
-      <td>150</td>
-      <td>5</td>
-      <td>149</td>
-      <td>5</td>
-      <td>143</td>
-      <td>442</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>8</td>
-      <td>239</td>
-      <td>8</td>
-      <td>228</td>
-      <td>8</td>
-      <td>270</td>
-      <td>737</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>6</td>
-      <td>182</td>
-      <td>6</td>
-      <td>174</td>
-      <td>6</td>
-      <td>169</td>
-      <td>525</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>11</td>
-      <td>282</td>
-      <td>11</td>
-      <td>262</td>
-      <td>11</td>
-      <td>288</td>
-      <td>832</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>8</td>
-      <td>210</td>
-      <td>8</td>
-      <td>183</td>
-      <td>8</td>
-      <td>221</td>
-      <td>614</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2393</th>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>279</td>
-      <td>11</td>
-      <td>305</td>
-      <td>863</td>
-    </tr>
-    <tr>
-      <th>2394</th>
-      <td>8</td>
-      <td>151</td>
-      <td>8</td>
-      <td>141</td>
-      <td>8</td>
-      <td>135</td>
-      <td>427</td>
-    </tr>
-    <tr>
-      <th>2395</th>
-      <td>4</td>
-      <td>76</td>
-      <td>5</td>
-      <td>91</td>
-      <td>5</td>
-      <td>103</td>
-      <td>270</td>
-    </tr>
-    <tr>
-      <th>2396</th>
-      <td>4</td>
-      <td>99</td>
-      <td>4</td>
-      <td>95</td>
-      <td>4</td>
-      <td>92</td>
-      <td>286</td>
-    </tr>
-    <tr>
-      <th>2397</th>
-      <td>5</td>
-      <td>116</td>
-      <td>5</td>
-      <td>98</td>
-      <td>5</td>
-      <td>126</td>
-      <td>340</td>
-    </tr>
-  </tbody>
-</table>
-<p>2398 rows × 7 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Matplotlib 사용과 한글 처리를 위한 Code</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.unicode_minus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># minus 표시</span>
-<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s1">&#39;Malgun Gothic&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[96]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>463400</pre>
+<pre>&lt;strong class=&#34;total&#34;&gt;관람객 평점 &lt;em&gt;3,387&lt;/em&gt;건&lt;button class=&#34;btn_review&#34; id=&#34;open-form-btn&#34;&gt;내 평점 등록&lt;/button&gt;&lt;/strong&gt;</pre>
 </div>
 
 </div>
@@ -13916,12 +13228,11 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">b</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">string</span>     <span class="c1"># get_text() 대신에 string</span>
+<span class="n">count</span>
 </pre></div>
 
     </div>
@@ -13934,13 +13245,13 @@ Length: 2398, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[97]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>444714</pre>
+<pre>&#39;3,387&#39;</pre>
 </div>
 
 </div>
@@ -13951,12 +13262,11 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">7</span><span class="p">]</span>
-
-<span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="n">count</span>
 </pre></div>
 
     </div>
@@ -13969,13 +13279,13 @@ Length: 2398, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[98]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>500698</pre>
+<pre>3387</pre>
 </div>
 
 </div>
@@ -13986,27 +13296,85 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">4.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">total_page</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">count</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">total_page</span>
+</pre></div>
 
-<span class="n">a1</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">b1</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">c1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    </div>
+</div>
+</div>
 
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1학년&#39;</span><span class="p">,</span> <span class="s1">&#39;2학년&#39;</span><span class="p">,</span> <span class="s1">&#39;3학년&#39;</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1학년 총 학생수 : </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">a1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2학년 총 학생수 : </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">b1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3학년 총 학생수 : </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">c1</span><span class="p">)</span>
+<div class="output_wrapper">
+<div class="output">
 
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;전국 고등학교 학년별 총 학생수&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>339</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#51204;&#52404;-&#47532;&#48624;&#50640;&#49436;-&#45936;&#51060;&#53552;-&#49688;&#51665;&#54616;&#44592;">&#51204;&#52404; &#47532;&#48624;&#50640;&#49436; &#45936;&#51060;&#53552; &#49688;&#51665;&#54616;&#44592;<a class="anchor-link" href="#&#51204;&#52404;-&#47532;&#48624;&#50640;&#49436;-&#45936;&#51060;&#53552;-&#49688;&#51665;&#54616;&#44592;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">review</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">total_page</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url_base</span> <span class="o">+</span> <span class="n">ifr_url</span> <span class="o">+</span> <span class="s1">&#39;&amp;page=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_result&#39;</span><span class="p">)</span>
+    <span class="n">lis</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;star_score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">point</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">count_span</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">))</span>
+        <span class="n">count_icon</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;ico_viewer&#39;</span><span class="p">))</span>
+        <span class="n">count_spo</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;text_spo&#39;</span><span class="p">))</span>
+        <span class="n">criteria</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">count_span</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count_icon</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count_spo</span><span class="p">)</span>
+        <span class="c1">#print(criteria)</span>
+        <span class="k">if</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;100&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; </span><span class="se">\t\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;200&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;data-src&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;210&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; </span><span class="se">\t\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;310&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;data-src&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;311&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; </span><span class="se">\t\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">criteria</span> <span class="o">==</span> <span class="s1">&#39;201&#39;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; </span><span class="se">\t\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">review</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">date</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;score_reple&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -14023,26 +13391,8 @@ Length: 2398, dtype: int64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1학년 총 학생수 : 463400
-2학년 총 학생수 : 444714
-3학년 총 학생수 : 500698
-</pre>
+<pre>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAxkAAAJVCAYAAACyDjhcAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nO3debhld1kn+u+bqpCEQSFJBQVCgojEbq/ESzE7IAgKARu7AYcOIQxGvA2CiIi3W1DEgJ02DCpCLoNcQG6Ai0gEQdRGBoE2Ay1eGkIgJIAkJAEiQxiSvPePtYrsnDrDPlU/cqiqz+d59pOz17vW+q19Krtqf/dvWNXdAQAAGOWgrb4AAABg/yJkAAAAQwkZAADAUEIGAAAwlJABHBCq6uZV9aNbfR1braq2VVVt9XWspqoOqqpv2b9LVXVMVT1vL89x26p66oBreUxV/e97e56F831L/1yr6sZV9ZCqOvRb1QawfxEygH1WVd27qnqdx6cWdj8+yV+vc66/2eBcux7HfOtf2W7X9tAlr+3xS5zu0iT/YY12LqmqHx579ZvyX5O8abVCVZ1eVS/cy/N/d5InrnH+366qv1xl+8lV9eGFTd+T5NS9vI4k+dUk9xxwnl3en+TXVitU1f+oql9Y7+CqendVPW7FtrtX1a4lKI9K8udJjlzmYqrqr6vq95bZF9g/bd/qCwDYC+9NcvTC8/8nyX9P8uL5+dWbONfDkhyyTv2IJP+c5GubucD5g/8fLrHr27r7p9apfybJRt98/+sq7X/Xyk1Jbr5i+5XdfVWSm2eNfxeq6rFJ/q8N2t/lAd391o12qqrvTHLYwqYbJzlkxbV9vbs/N9dW/RZ9Dkbv6u5v1Tf5N6qqH5h/vt1mD55Dyh1XKf1hVa38f+OXu/tFS5xzR5JtC5u2J7nZit/dl7r7S0m+I8mNNjrl/Nhrc2/UcUm+NOJ8wL5JyAD2Wd39tSTf7K2oqhsnObi7P7X2UWue6/Pr1Re+0d1UyEjy8iRv3GCfJyf5Nxvsc213X7LJtpMpnKy0Miw8KsmfbnCeP0uyYXBI8okl9tnl+Ukeucr2xWv++yT33sQ5v6mqnpVk58Km79zgkIOrauU39TfNFCw+uLDtmk1eyg/n+v/e/limQPzPSR6U6/8/deWS5/zHJCt71e6U5OkLz38nyW8veb7bJLntkvtu5NeT3CTJA6vqx7v7vw86L7APETKA/UJVfUeSXd82P23e9vpMHxKT5PC9bGLX35df3cxB3f3lJF9eb5+q2q0HYpTFb/fnb7lvnanH4+I5pC17nq8k+cpG+21mWkB3n5zk5Pm4m2T60HyjJBdtFPqW9OYkZy88/74kd19n//snuWyV7R/p7uPm67x3kr/ZzEV09+XzsYcl+eUkz0jyn5P8dJIzkzyxu9+/yXMeu+vnqjoiU0C4KtOf64Z/Touq6paZQsaPr1G/aaaepI3Oc0iS303yS5nC0x2SvLGqnpTkT9vdf+GAImQA+4vHJPlokttV1U/Nw3XekeuG2Nw+yQ/uxfl3nWezPRnL2ugD2K0XelPW8uLuftzKjVV1j0y9BrdO8vEkN0tym6r64yS/093XLux++BxGruruZb9VX2npD5NVdbMkz0vy75NckOQbSe5YVe9L8p+6+xMLux+2azjQkr06Z+f6Q4o+t8H+b+7uB624vpOTPKOqjp83fe8S7S4e/6OZelPuninEvCfJfbr7nKo6Lcnjk7yhqr6UKRRdkOQNy7y+qjouyR9l6sE4P9Nwv9tX1auT/Po8BG6X75x/d7uGny36lSQfSPIDVfXA7n7LivoXN7iO2yd5yPxaLk6ys7s/muRd81CxFyZ5YlW9NMnfJvlod39jo9cH7NuEDGCfN0/G/q0kJ2b6NvwlVXX37v6jhX3unWlY0OJx27PkRNYkx2aa43HU/G39rvHuI9wo04frtZyVadLyRnb7BnseQvaXSZ6V5Hm7vk2uqttlmr/y2SR/vHDI/zv/99WZfp9Lm1c32pbNBbHTMvUw3K67vzCf50aZPjy/LsldFvZ9+PxIVR3c3RvNuTkryU9u4lrWsiPT7y+Z5uZsRmcKt+9M8qvd/ekkqar3JnlRdz+3ql6Q5AHz44QkL13y3G9M8pYkP7XrdzEP93prkmdmGra0y/Pmx3syDd/KvP9dM02G/8n5Ol9RVffq7vO/+QK6q6qOTXLhyguoqmfM7fxdklO6++3Xe/Hd/1BVP5SpZ+OkTD04j8kUqID9mJAB7NPmoRxnJXn9rm9gq+qeSd5aVT+560PdGo7L9cfaL2PXfIHNjHf/pvkb8X/t7o8vbD4k6wzDmoc17cl8jGQaRnN4kj9bHK7S3RdW1bsyrbq16Me7+x1rnWz+Zv67u/vMhee37u7X5LrJxZsJGccn+fNdAWO+tq9X1ZmZh1IteMU8xGopKyfSV9XdMy0WsJYT1ugt+siuHo7NDpfq7ncledcqpVtknvTe3ddkCoK7rW61lpqWkr1jkkcuhq3uvryq/iq7Dwt7VHf/6Ypz/EiS12bqzXpPkvfMgf29VfWLSf5liUv5vSTP7u6vr7XD/P/dWfMDOEAIGcA+q6r+t0wTaC9N8oSF0q6JzB+sqnt090dWO767/zlrrKhTVS9KcuhmPtQu6TlJ3pfrB5SbZJV5G1V1dpI770EbFy2M2f9okg9l+ob6t+fnN0vy75I8NNMwpc24T6bhP2cuPL97ktfkupWi1h1es8Ibk/xaVV2c6dv+b2Qa/vMHua5XZSlziEim3pRDMv1eD09yRHefvsHh/y3JWqs6bWaVssXr+f2ssazs7I+q6o/WqN2+uy9a68Du/mpVvW0+x1MzTSI/JNOfx+Mzz0ta59pulmlRgtO7+7SF8z6tqi7I6gsGrHYde/S7AfZ/QgawL/vBTD0Rj12cxDx/8Dmxqu67VsD4NnNkko+tsv2B2Xjp0dUsfrN9TVX9eJLfzDQE6laZJn5/IMmDu3tTk5g3sGty/eXLHtDdz6mqS5M8KdPY/e2ZVqh6VabhPcv4UpL/OR9/Taag8tVMwe0LST5VG8xIn4e+fWnuIdjt38a5xyyZ5nlstErVrnP+RpLfWPI17ImHZhqq9MJMPVZfzRQof6m7X7vBtX2xqo5bLSR090uSpKpunWkYYjL1Tp2T5Js9FptYnnk16/aYAfs+IQPYZ3X3qzN9cN41x+CLu1bymet/u+y55hV2Fj+IHpbk0FXuM3Hpt2CVnIOzynCo7v7sajvP9yE4JMnXVkzaXtV8nl+dH+v5mWx++NiigzNNLL9iMwd198szfau+nj/OGjeQ7e4PZPdhX7tZcuWrN2bjeRzXZJP/fs7zTH4pUzD4t5nuSfKNTEOS/iHJC7r7HzdzzjkYPWN+rOdxmSaUrzz+mwGjqrZlWk74ZzOF9yMyzSe5tKrunGl1qJ0rTvGSTD2JqzkzU5B99hr1PV1UANhHCBnA/uKVmca0P2cPj/90rr8S0S4PX/H8Fpm+HR+mu//dRvvM4+cfn+RemXojKklX1SWZ7vb8wpWTbheOvWmWH8L0I0neveS+1zP3Gt1+s8fNSw2vehfyFV6a5LHrnOdpSc7v7jds9hoWPDBrhJnZvTKtkLS0uRflLZluHPl7mX6/l2cKskdn+mD/nqr6uc1ee1VdnuUmoz8iU+/QaufYluSvMv3ZPS/TfVs+m+n98N1JfirTYgr37+7/tOu47v5q1phLVFXfyLRC2dK9WsD+RcgADgjz0IxV7xg919f9+3BeLvR/LdteTXezvtkqpUOSfEdV3Wadwz8zTwbeda4Tkrwh07yB52Ra5edLmeYcHJ1p+dA3VdWj5wnY19PdX6rpDtEb2e0mhvO9HW65sOnmmZaSPXaN54suX3IFrkdl+rZ9Pf9tifP8RKY/41U/qHf3+7LxXa1vlPX/bdyT4Ws7k9w30zyLxQn//5ppPtHZ8z0mnpo1rn0d35f1Q1Gy/mT3ZFpa98eTHL3K0rmXJDmvqt6Z5N1VddqKZYUBViVkAHxr/FbWnvR776w/dOl2uf6ds09IcnZ3/+cV+105P/65qu6SaZnQ3UJGct0N4dazxnCi+2b1VYFWLme62/KmWe5O4unuL2bjezF8NTfMv1nLDpfajF1D2g5eZ58bLey3tFXuebGbqtroeivT0KhNtw+wFiED2J8cWlU332Cfr6y33OYo3f2UJE8ZdLo/T/KYqtq14tInMk1qvnGmCb8/nenb6P84qL1v6u6/zMbf/n87ufF8r4j1XDXfiX0tf5ANek6q6sabuLP2uUnenuSvqupZuW641KGZ7uvyC5nuHfGwJc832l9nWmb3nVX13EyrfF2W64ZL/WSmwHyGXgxgWRt1sQLsS56R5PMbPE7asqvbQ/Nci3tmWr3p5ZmWof18phWpXpUpaNxnL+ci7C9+PdMH5PUef7DBOX4t0xKu6z0evewFzQsFPCjTfIeTMw1f+mymSfKvzjTP517d/cZlzznSPAH8JzP9Xh6a5B2ZXuMnM/Vi3TPJ47r7l7bi+oB9U41fJAVg/zPfpOzMJD8x8E7f31aq6meSvLO7N7U61A1hvmv0Qd19zlZfy76mqu6f5MPdffEN2Ob9Ms3JOe+GahP49iJkAAAAQxkuBQAADCVkAAAAQwkZAADAUAfkErZHHnlkH3vssVt9GQAAsM8655xzLu/uVW/2ekCGjGOPPTZnn332Vl8GAADss6rqorVqhksBAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADLVhyKiqR1XVl6rqEwuPH5trx1bV26rqoqr6WFWdvOLY+1TVB+b6uVV1lxX1J1bVBVX16ap6U1UdtVA7tKpeNB/7qao6vaoOWqiv2zYAALA1lunJuEWSV3X3sQuPv6+qbUnOSvK67j4myQOSnFZVd02mEJDkNUkeNddPTXJWVd1krj88yaOT3C3J0UkuTPKyhXZPT3JIktsn+f4kd0/y5PnYddsGAAC2zjIh4/Akn19l+32TpLtfMv/3/CQvT3LyXD8lyWu7+7y5/vokFyc5Ya4/Kckzu/uK7r42ydOT3K+qbllVN53P89Tuvrq7v5jkWZlCyTJtAwAAW2TZnozVQsY9krxnxbb3Jzl+o3pVbU+yc7He3VcmOT/JnZLcOcnF3X3ZimOPq6pDl2gbAADYItuX2OcWSR5aVU9I8skkf9jdr0lyqySXrNj3s0mOnH++VZJLV6kfnWRHkoPXqB+ZpFfWuvuKqupMPSsbtb2bqjolU+9Kbnvb2661GwCwjzr2aW/e6kuAG8wnnnPCxjttoWVCxondfe08D+JHkpxZVV9Nsi1Jrdh3W6aAkA3q2+bnByW5Zo369Y5dmPS9an1F27vp7jOSnJEkO3fuXHM/AABg72w4XGqeL5Huvqa735HkuUkeluRz2b3nYEeu62FYr/75TIHgiDXqqx17RJJrk1yxRNsAAMAW2ZP7ZGxL8vUk5yS554ravZK8d/55zXp3fznJRxbrVXVEktslOXd+3KGqjlxx7DndvUzbAADAFlnmPhn3nydqp6p2JnlCkldnWkL2qKp65Fw7PsnDk7x4PvSlSR4xb8+83/Ykb5/rZyR5elXdoqoOTvLsJK/o7iu7+5Ikb0lyalUdXFWHZ1p96rnzsRu1DQAAbJFl5mQ8JsmrquqqTJOrf7m7354kVfXgJGdU1Wlz7aTuvjBJuvvsqnpSkjdW1WFJ/inJg7t71xyM5ye5daYejauTvDnzfTAW2n1Jks8k+XKS53X3mfO5v7Je2wAAwNbZMGR098+uUzsn03Kza9VfmeSVa9SuTfKU+bFa/fIkD9nTtgEAgK2xJ3MyAAAA1iRkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQ27f6Ag5Uxz7tzVt9CXCD+cRzTtjqSwAAbkB6MgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYavtWXwDAt7Njn/bmrb4EuEF94jknbPUlAPsBPRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAENtKmRU1dOq6uqF58dW1duq6qKq+lhVnbxi//tU1Qfm+rlVdZcV9SdW1QVV9emqelNVHbVQO7SqXjQf+6mqOr2qDlqor9s2AACwNZYOGVV1syRPXHi+LclZSV7X3cckeUCS06rqrnP92CSvSfKouX5qkrOq6iZz/eFJHp3kbkmOTnJhkpctNHl6kkOS3D7J9ye5e5InL9M2AACwdTbTk/E7SV6/8Py+SdLdL5n/e36Slyc5ea6fkuS13X3eXH99kouTnDDXn5Tkmd19RXdfm+TpSe5XVbesqpvO53lqd1/d3V9M8qxMoWSZtgEAgC2yVMioqp1J7pfkBQub75HkPSt2fX+S4zeqV9X2JDsX6919ZZLzk9wpyZ2TXNzdl6049riqOnSJtgEAgC2yfaMdquo7Mw17enSSbyyUbpXkkhW7fzbJkQv1S1epH51kR5KD16gfmaRX1rr7iqrqJIcv0TYAALBFlunJeFmmuQ/vWrF9W5JaZVsvUd+2RvuL9esduzDpe9X6irZ3U1WnVNXZVXX2ZZddttZuAADAXlo3ZFTVr2TqNXjGKuXPZfeegx25rodhvfrnMwWCI9aor3bsEUmuTXLFEm3vprvP6O6d3b1zx44da+0GAADspY16Mv6PJD+Q5LKq+kKSf0qybf75nCT3XLH/vZK8d/55zXp3fznJRxbrVXVEktslOXd+3KGqjlxx7Dnd/fUl2gYAALbIuiGju4/r7pt19827++ZJfjDJNfPPZyU5qqoemSRVdXyShyd58Xz4S5M8Yt6eeb/tSd4+189I8vSqukVVHZzk2Ule0d1XdvclSd6S5NSqOriqDs+0+tRz52M3ahsAANgie3zH7+7+SpIHJ/mVqvpsklclOam7L5zrZ2dapvaNVXVpkhOTPLi7r5lP8fwkf5epR+OiTHMsnrzQxGOSHJXkM0nOS/LK7j5zmbYBAICts+HqUou6+xOLx3T3OZmWm11r/1cmeeUatWuTPGV+rFa/PMlD1jn3um0DAABbY497MgAAAFYjZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMJWQAAABDCRkAAMBQQgYAADCUkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADCVkAAAAQwkZAADAUEIGAAAwlJABAAAMtVTIqKrHVtWHquqiqjq/qh6zUDu2qt421z5WVSevOPY+VfWBuX5uVd1lRf2JVXVBVX26qt5UVUct1A6tqhfNx36qqk6vqoMW6uu2DQAA3PCW7cn4cJI7d/cxSR6S5LlV9UNVtS3JWUleN9cekOS0qrprMoWAJK9J8qi5fmqSs6rqJnP94UkeneRuSY5OcmGSly20e3qSQ5LcPsn3J7l7kifPx67bNgAAsDWWChnd/e7uvmr++UNJPprk1knuO297yfzf85O8PMnJ86GnJHltd58311+f5OIkJ8z1JyV5Zndf0d3XJnl6kvtV1S2r6qbzeZ7a3Vd39xeTPCtTKMkSbQMAAFtgU3MyqurgqvqFJJXkb5PcI8l7Vuz2/iTHzz+vWa+q7Ul2Lta7+8ok5ye5U5I7J7m4uy9bcexxVXXoEm0DAABbYPsyO1XVdyT5YKbei48mObG7r6qqWyW5ZMXun01y5PzzrZJcukr96CQ7khy8Rv3IJL2y1t1XVFUnOXw+93ptr3wNp2TqWcltb3vbtV4qAACwl5YdLvWv87yHwzLNiTirqn40ybZMvRqLtmUKCNmgvm2Na1isX+/YhUnfq9ZXtL3yNZzR3Tu7e+eOHTtW2wUAABhgU8Oluvsb3f1XSf4kyS8n+Vx27znYket6GNarfz5TIDhijfpqxx6R5NokVyzRNgAAsAX29D4ZX0tyVZJzktxzRe1eSd47/7xmvbu/nOQji/WqOiLJ7ZKcOz/uUFVHrjj2nO7++hJtAwAAW2DDkFFVN6mqX6qqG83P75TkCUn+70xLyB5VVY+ca8cneXiSF8+HvzTJI+btmffbnuTtc/2MJE+vqltU1cFJnp3kFd19ZXdfkuQtSU6dJ5wfnmn1qefOx27UNgAAsAWW6cm4OsmDk3yyqj6eaajUKd39ju7+ylz7lar6bJJXJTmpuy9Mku4+O9MytW+sqkuTnJjkwd19zXzu5yf5u0w9GhdlmmPx5IW2H5PkqCSfSXJekld295nzuddtGwAA2Bobri7V3V9L8qB16udkWm52rfork7xyjdq1SZ4yP1arX57p5n971DYAAHDD29M5GQAAAKsSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYaqmQUVUPrKr3VdXHquqCqnr8Qu3YqnpbVV00109ecex9quoDc/3cqrrLivoT53N+uqreVFVHLdQOraoXzcd+qqpOr6qDFurrtg0AANzwlu3J+PkkJ3b37ZPcP8nTquqEqtqW5Kwkr+vuY5I8IMlpVXXXZAoBSV6T5FFz/dQkZ1XVTeb6w5M8Osndkhyd5MIkL1to9/QkhyS5fZLvT3L3JE+ej123bQAAYGssGzJO6u4LkqS7P57ktUnuOz/S3S+Z/3t+kpcnOXk+7pQkr+3u8+b665NcnOSEuf6kJM/s7iu6+9okT09yv6q6ZVXddD7PU7v76u7+YpJnZQolWaJtAABgCywVMrq7V2zakeTKJPdI8p4VtfcnOX7+ec16VW1PsnOx3t1XJjk/yZ2S3DnJxd192Ypjj6uqQ5doGwAA2AKbnvhdVXdL8uAkr05yqySXrtjls0mOnH9er74jycHr1Hc7truvSNJJDl+ibQAAYAtsKmRU1YlJ3pTrhk9tS1IrdtuWKQhkg/q2Na5hsX69Yxcmfa9aX9H2yms/parOrqqzL7vsstV2AQAABlh2dakbVdXLkjwtyU9095vm0ueye8/BjiSXLFH/fKZAcMQa9dWOPSLJtUmuWKLt6+nuM7p7Z3fv3LFjx2q7AAAAAyzbk/HiTB/o79rdH1zYfk6Se67Y915J3rtRvbu/nOQji/WqOiLJ7ZKcOz/uUFVHrjj2nO7++hJtAwAAW2DDkDF/8H9EpiFSX1lRPivJUVX1yHnf45M8PFMoSZKXJnnEvD3zftuTvH2un5Hk6VV1i6o6OMmzk7yiu6/s7kuSvCXJqVV1cFUdnmn1qecu2TYAALAFti+xzx0zzX34QNX1pkB8rLvvW1UPTnJGVZ2WaeL1STgm/FkAAA2cSURBVN19YZJ099lV9aQkb6yqw5L8U5IHd/c18zmen+TWmXo0rk7y5sz3wZg9JslLknwmyZeTPK+7z5zP/ZX12gYAALbGhiGju/8h103SXq1+TqblZteqvzLJK9eoXZvkKfNjtfrlSR6yp20DAAA3vE0vYQsAALAeIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoZYOGTU5qarOXrH9TlX13qq6qKr+V1U9YEX95+btn6yqv6+q712oHVRVv1dVF1bVp6vqFVV144X64VV1ZlVdPJ//aZtpGwAAuOEtFTKq6kFJPpjkt5LcfGH7zZK8JcnvdPcxSR6T5DVVdZu5fo8kv5/kAd19dJI3JXlDVdV8iqckuUuSf5vkdklumuS/LjT9qiTnJzkmyd2SPLaqHrpM2wAAwNZYtifjJkl+Lckvrtj+80nO7e63Jkl3/0OSv07yC3P9CUle0N2fmJ8/N8lRmYJFkjwxyW9291e6++uZQswjqmp7VX1fpmDxzJ5ckuT0JI9esm0AAGALLBUyuvvM7n7bKqV7JHnPim3vT3L8avXuvjbJPyY5vqqOSXKLJOcu1D+UpJJ8z3zsP3b3N5Y59yp1AABgC+ztxO9bJbl0xbbPJjlyifqtklzW3b2iftlCfU/PDQAAbJG9DRnbMvU8rNzWS9RXq21UX/bcu6mqU6rq7Ko6+7LLLlv1xQAAAHtvb0PG57J7z8GOJJcsUV+tlnnbWvVlz72b7j6ju3d2984dO3as+mIAAIC9t7ch45wk91yx7V5J3rtavaq2ZZrM/d4kH01ydVUdv1A/PskXk3xiPvauVbV9mXOvUgcAALbA3oaMVye5d1XdL0mq6v5J7pzkz+b6GUl+tapuW1UHJfk/M03m/vA8ofvlSU6tqsOq6rAkpyZ53jxP438k+VSS35zvp3FMkl9J8oIl2wYAALbA9o13WVt3f6qqfjbJH1bV4UkuTPLT3f2vc/3P55vvvS9ToHl3khMXTvG0JC9M8skkX810X4zT5mO7qv59kpdlChdfSPJf5qVqN2wbAADYGpsKGd39jiTfu2Lb25Ict84xp2UODqvUrkryqHWO/XiSe69TX7dtAADghre3w6UAAACuR8gAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGErIAAAAhhIyAACAoYQMAABgKCEDAAAYSsgAAACGEjIAAIChhAwAAGAoIQMAABhKyAAAAIYSMgAAgKGEDAAAYCghAwAAGGqfDxlVdWhVvaiqLqqqT1XV6VW1z78uAADYV+0PH8ZPT3JIktsn+f4kd0/y5C29IgAAOIDt0yGjqm6a5OQkT+3uq7v7i0meleTRW3phAABwANunQ0aSOye5uLsvW9j2/iTHVdWhW3RNAABwQKvu3upr2GNV9fNJHtfdP7Zi+zVJju7uf1nYdkqSU+and0zykRvsQvl2cmSSy7f6IoANea/CvsP79cB1THfvWK2w/Ya+ksG2JanFDQuTvq+Xnrr7jCRn3EDXxbepqjq7u3du9XUA6/NehX2H9yur2deHS30uU3pedESSa5NcccNfDgAAsK+HjHOT3KGqFoPGvZKc091f36JrAgCAA9o+HTK6+5Ikb0lyalUdXFWHJ3l6kudu7ZXxbcyQOdg3eK/CvsP7ld3s0xO/k2TuxXhJkh9O8uUkz+tuIQMAALbIPh8yAACAby/79HApWE1V/UlVHbZi2xFV9Rt7eL5XVdXJQy4OuJ6q+t2qOnrFtoOq6jl7eL5nVdVvD7k44Hq8X9kMIYP90aOSHLJi2y2S/PLKHatqe1XpzoOt87BMqwIuOijJql8KVNWnqurYb/E1AavzfmVpQgb7lJqcVFVnL2z72aq6ZNcjyReSfHhh2y9uso3/WFWf2PVI8pCxrwL2f1X1wKp6X1V9rKouqKrHz9vvueL9evMkb13Y9sxNtvNjK96vjx//amD/VlWPraoPVdVFVXV+VT1m3u79yh7b12/GxwGkqh6U5DmZeim+eRPG7j4zyZlVdYckD0/yXZnuk/IX3X3efOz3bqKpP0ty5sLzV+zlpcOB6OeTnNjdF1TV9yR5Z1Vd2N1vTvJdVXXreZ/bJrkyyd90998nUw/jJtp5Z5LF9/fvjLl8OKB8OMmdu/uqqvo3Sd5XVed29z/E+5U9JGSwL7lJkl9L8rVMK4p9U1XdL9PyxY9L8pFMfxE+v6pe3927QsLR8zcxF3b3PdZp525JHrrw/IeSvH3MS4ADxkk9ryzS3R+vqtcmuW+SN1fVD2YK76ckOS/JUUl+t6ru3d3f/NAxv1+v7u7brNPO9yVZ7K28V5K3jX0psH/r7ncv/PyhqvpoklsnOc/7lT0lZLDPmHssUlX3XqV8UpKXdPf/Nz//eFX9QZJn5rqeiE9297FLNHVZkrMXnt9tjy4YDmC9+9KFO5JcMP/8sCRv7O5/nJ//S1X9bqZvOb/5oaW7v2uJpq7M9d+v37NnVwxU1cGZ3p+V5G/nzd6v7BEhg/3Fe5M8vqrOy9STcXSSpyZ597pHzarqNpn+Ut2WaTjWJ5Mc1t1/Mw/TAvZQVd0tyYOT7Jw3vS/JC6rqr5OcmymAPCNLvl8zDd+4JtP79bAkFyU5srvPqqofGHrxcACoqu9I8sFMvRcfzTTU8aq57P3KHhEy2C909wur6qokf5DkuzP1Rvx5kj/e6NAk5yR5Q5Krk3w9000dv5DpL9y/+VZdMxwIqurETO/Lk7r7giTp7jfP47j/S5JjMr3f3jbvt5H/meQFSa7J9H79SqZvRy9OctbwFwAHgO7+1yTHzD0ZP5HkrKr6ue5+p/cre0rIYL/R3S9P8vI1yp/M9E3qymOuyXXfrgKDVNWNkrwoyV2T/ER3f3Cx3t1/keQvVju2u6+uqrusUTth9LUCk+7+RpK/qqo/ybTs+zvn7d6vbJqQwX6jql6XZK0J3dsy9VCsuspUVb06yYu6+12rlN+Z68aSA8t5cab19O/a3V9ZWayq0zOtBreW78oa/0ZV1e8n+UB3v2aV8rlJrt385QILvpZk13Ap71f2iJDBfqO7H7ZWbV7C9q3rHH7rTKtXrXbeM/by0uCAUlVHJHlEpnHXuwWMJOnuJyd58hrHb0/y1XWauGWS71zjvG/Y3NXCga2qbpLkxCQv7+6vV9Wdkjwh03s4ifcre0bIAGC0O2ZaSOEDVbW4/WPdfd+tuSRgDVdnGk78zKr6cpJLkpzS3e/Y0qtin1e7rzII+59dPRndvdZwqXck+cFME9NW88nuXnXMKTDWrm9Gu3ut4Rd/muRnsjCcY6Ull9ME9pL3K2sRMjggVNXNk/yH7n7pVl8LsL6auj9+tbtP3+prAdbn/cpahAwAAGCog7b6AgAAgP2LkAEAAAwlZAAAAEMJGQAAwFBCBgAAMJSQAQAADPX/A58u3MivXNrDAAAAAElFTkSuQmCC
-"
->
-</div>
-
 </div>
 
 </div>
@@ -14051,15 +13401,12 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 14장</span>
-
-<span class="mf">5.</span>
-
-<span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;population_age_2020.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;평점&#39;</span><span class="p">:</span><span class="n">point</span><span class="p">,</span> <span class="s1">&#39;일시&#39;</span><span class="p">:</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;감상평&#39;</span><span class="p">:</span><span class="n">review</span><span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14072,7 +13419,7 @@ Length: 2398, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[100]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -14095,293 +13442,71 @@ Length: 2398, dtype: int64</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>지역</th>
-      <th>총인구수</th>
-      <th>0~9세</th>
-      <th>10~19세</th>
-      <th>20~29세</th>
-      <th>30~39세</th>
-      <th>40~49세</th>
-      <th>50~59세</th>
-      <th>60~69세</th>
-      <th>70~79세</th>
-      <th>80~89세</th>
-      <th>90~99세</th>
-      <th>100세 이상</th>
+      <th>평점</th>
+      <th>일시</th>
+      <th>감상평</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>서울</td>
-      <td>9736962</td>
-      <td>658355</td>
-      <td>813563</td>
-      <td>1455903</td>
-      <td>1505729</td>
-      <td>1563968</td>
-      <td>1539385</td>
-      <td>1200518</td>
-      <td>688818</td>
-      <td>263939</td>
-      <td>40404</td>
-      <td>6380</td>
+      <td>10</td>
+      <td>2020.02.12 20:55</td>
+      <td>왜 여성은 사랑을 해야하냐며 말하면서도 사랑을 받고 싶다고 외치던 장면이 너무나 울...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>부산</td>
-      <td>3410925</td>
-      <td>241624</td>
-      <td>281120</td>
-      <td>434692</td>
-      <td>431911</td>
-      <td>518321</td>
-      <td>580966</td>
-      <td>511174</td>
-      <td>285602</td>
-      <td>109312</td>
-      <td>14396</td>
-      <td>1807</td>
+      <td>10</td>
+      <td>2020.02.12 09:02</td>
+      <td>재밌다고 느끼면 추천을 아니다 비추천</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>대구</td>
-      <td>2432883</td>
-      <td>186623</td>
-      <td>234528</td>
-      <td>321487</td>
-      <td>303397</td>
-      <td>391997</td>
-      <td>428622</td>
-      <td>311274</td>
-      <td>171217</td>
-      <td>74227</td>
-      <td>8817</td>
-      <td>694</td>
+      <td>8</td>
+      <td>2020.02.12 13:12</td>
+      <td>철없는 막내로만 재현되어왔던 에이미 캐릭터의 재발견. 어쩌면 자매 중에서 제일 고민...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>인천</td>
-      <td>2954955</td>
-      <td>239941</td>
-      <td>281097</td>
-      <td>405835</td>
-      <td>417708</td>
-      <td>490716</td>
-      <td>515758</td>
-      <td>344843</td>
-      <td>172269</td>
-      <td>74306</td>
-      <td>11574</td>
-      <td>908</td>
+      <td>10</td>
+      <td>2020.02.12 13:27</td>
+      <td>“자매를 미워하기엔 인생이 너무 짧아.“ 라는 명대사가 내 마음 속에 강하게 들어왔다.</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>광주</td>
-      <td>1456121</td>
-      <td>125396</td>
-      <td>162728</td>
-      <td>207554</td>
-      <td>191432</td>
-      <td>244903</td>
-      <td>234048</td>
-      <td>155056</td>
-      <td>91020</td>
-      <td>38050</td>
-      <td>5529</td>
-      <td>405</td>
+      <td>10</td>
+      <td>2020.02.12 21:18</td>
+      <td>조가 여자의 전부가 사랑이라는 말이 지긋지긋하지만 너무 외롭다는 말이 공감이 간다....</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>대전</td>
-      <td>1473125</td>
-      <td>120476</td>
-      <td>151861</td>
-      <td>212143</td>
-      <td>199106</td>
-      <td>242381</td>
-      <td>243526</td>
-      <td>170291</td>
-      <td>88289</td>
-      <td>39190</td>
-      <td>5523</td>
-      <td>339</td>
+      <td>10</td>
+      <td>2020.02.12 11:58</td>
+      <td>영화를 보고 나니 조를 응원하는 내 자신을 발견했다. 잔잔한 감동과 재미가 있는 영화.</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>울산</td>
-      <td>1145710</td>
-      <td>103399</td>
-      <td>115623</td>
-      <td>147745</td>
-      <td>158271</td>
-      <td>190698</td>
-      <td>211255</td>
-      <td>136520</td>
-      <td>57438</td>
-      <td>21610</td>
-      <td>2991</td>
-      <td>160</td>
+      <td>9</td>
+      <td>2020.02.12 13:19</td>
+      <td>'우리의 어린시절이 끝이났다니 믿겨지지 않아.'격렬하고도 잔잔한 따뜻했던 가족이야기.</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>세종</td>
-      <td>343788</td>
-      <td>47454</td>
-      <td>40574</td>
-      <td>36273</td>
-      <td>61442</td>
-      <td>65714</td>
-      <td>42907</td>
-      <td>27813</td>
-      <td>13609</td>
-      <td>6863</td>
-      <td>1084</td>
-      <td>55</td>
+      <td>10</td>
+      <td>2020.02.12 14:51</td>
+      <td>13살 때 1995년도판 &amp;lt;작은 아씨들&amp;gt;을 보고 에이미를 네 자매 중 가...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>경기도</td>
-      <td>13265377</td>
-      <td>1178548</td>
-      <td>1347854</td>
-      <td>1769080</td>
-      <td>1917785</td>
-      <td>2299179</td>
-      <td>2205106</td>
-      <td>1422638</td>
-      <td>742296</td>
-      <td>330231</td>
-      <td>48650</td>
-      <td>4010</td>
+      <td>10</td>
+      <td>2020.02.12 17:10</td>
+      <td>엠마왓슨 진짜 존예.. 영화 너무 사랑스럽고 이뻐요..,</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>강원도</td>
-      <td>1539521</td>
-      <td>108694</td>
-      <td>141975</td>
-      <td>179813</td>
-      <td>169694</td>
-      <td>227950</td>
-      <td>269666</td>
-      <td>226444</td>
-      <td>135668</td>
-      <td>68321</td>
-      <td>10493</td>
-      <td>803</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>충청북도</td>
-      <td>1598599</td>
-      <td>128290</td>
-      <td>153119</td>
-      <td>198910</td>
-      <td>198768</td>
-      <td>243982</td>
-      <td>273857</td>
-      <td>209926</td>
-      <td>119037</td>
-      <td>63513</td>
-      <td>8656</td>
-      <td>541</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>충청남도</td>
-      <td>2120995</td>
-      <td>179808</td>
-      <td>206578</td>
-      <td>243748</td>
-      <td>276553</td>
-      <td>329789</td>
-      <td>340568</td>
-      <td>264305</td>
-      <td>167339</td>
-      <td>97941</td>
-      <td>13481</td>
-      <td>885</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>전라북도</td>
-      <td>1815112</td>
-      <td>135297</td>
-      <td>180675</td>
-      <td>212339</td>
-      <td>195971</td>
-      <td>274471</td>
-      <td>303074</td>
-      <td>244901</td>
-      <td>165445</td>
-      <td>89352</td>
-      <td>12770</td>
-      <td>817</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>전라남도</td>
-      <td>1861894</td>
-      <td>137868</td>
-      <td>172888</td>
-      <td>202760</td>
-      <td>193083</td>
-      <td>265366</td>
-      <td>317226</td>
-      <td>259385</td>
-      <td>191719</td>
-      <td>105793</td>
-      <td>14984</td>
-      <td>822</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>경상북도</td>
-      <td>2658956</td>
-      <td>198214</td>
-      <td>233506</td>
-      <td>291097</td>
-      <td>303472</td>
-      <td>390995</td>
-      <td>464427</td>
-      <td>389498</td>
-      <td>238482</td>
-      <td>130716</td>
-      <td>17589</td>
-      <td>960</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>경상남도</td>
-      <td>3358828</td>
-      <td>282751</td>
-      <td>331566</td>
-      <td>384750</td>
-      <td>418383</td>
-      <td>543911</td>
-      <td>585186</td>
-      <td>435315</td>
-      <td>240111</td>
-      <td>119977</td>
-      <td>16139</td>
-      <td>739</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>제주도</td>
-      <td>670876</td>
-      <td>62086</td>
-      <td>71539</td>
-      <td>81968</td>
-      <td>84145</td>
-      <td>113076</td>
-      <td>111221</td>
-      <td>75172</td>
-      <td>44621</td>
-      <td>22963</td>
-      <td>3819</td>
-      <td>266</td>
+      <td>10</td>
+      <td>2020.02.12 21:04</td>
+      <td>영화보다가 나도 모르게 계속 눈물이 나더라.조에 입혀진 나를 만나고, 아직 갈팡질팡...</td>
     </tr>
   </tbody>
 </table>
@@ -14396,172 +13521,23 @@ Length: 2398, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
-
-<span class="n">a</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Little Women.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[101]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>지역</th>
-      <th>100세 이상</th>
-      <th>총인구수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>서울</td>
-      <td>6380</td>
-      <td>9736962</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>부산</td>
-      <td>1807</td>
-      <td>3410925</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>대구</td>
-      <td>694</td>
-      <td>2432883</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>인천</td>
-      <td>908</td>
-      <td>2954955</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>광주</td>
-      <td>405</td>
-      <td>1456121</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>대전</td>
-      <td>339</td>
-      <td>1473125</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>울산</td>
-      <td>160</td>
-      <td>1145710</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>세종</td>
-      <td>55</td>
-      <td>343788</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>경기도</td>
-      <td>4010</td>
-      <td>13265377</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>강원도</td>
-      <td>803</td>
-      <td>1539521</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>충청북도</td>
-      <td>541</td>
-      <td>1598599</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>충청남도</td>
-      <td>885</td>
-      <td>2120995</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>전라북도</td>
-      <td>817</td>
-      <td>1815112</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>전라남도</td>
-      <td>822</td>
-      <td>1861894</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>경상북도</td>
-      <td>960</td>
-      <td>2658956</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>경상남도</td>
-      <td>739</td>
-      <td>3358828</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>제주도</td>
-      <td>266</td>
-      <td>670876</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;100세 이상&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14574,140 +13550,13 @@ Length: 2398, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[102]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>지역</th>
-      <th>100세 이상</th>
-      <th>총인구수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>서울</td>
-      <td>6380</td>
-      <td>9736962</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>경기도</td>
-      <td>4010</td>
-      <td>13265377</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>부산</td>
-      <td>1807</td>
-      <td>3410925</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>경상북도</td>
-      <td>960</td>
-      <td>2658956</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>인천</td>
-      <td>908</td>
-      <td>2954955</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>충청남도</td>
-      <td>885</td>
-      <td>2120995</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>전라남도</td>
-      <td>822</td>
-      <td>1861894</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>전라북도</td>
-      <td>817</td>
-      <td>1815112</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>강원도</td>
-      <td>803</td>
-      <td>1539521</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>경상남도</td>
-      <td>739</td>
-      <td>3358828</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>대구</td>
-      <td>694</td>
-      <td>2432883</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>충청북도</td>
-      <td>541</td>
-      <td>1598599</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>광주</td>
-      <td>405</td>
-      <td>1456121</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>대전</td>
-      <td>339</td>
-      <td>1473125</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>제주도</td>
-      <td>266</td>
-      <td>670876</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>울산</td>
-      <td>160</td>
-      <td>1145710</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>세종</td>
-      <td>55</td>
-      <td>343788</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>3387</pre>
 </div>
 
 </div>
@@ -14721,7 +13570,7 @@ Length: 2398, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">movie</span><span class="o">.</span><span class="n">naver</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">movie</span><span class="o">/</span><span class="n">bi</span><span class="o">/</span><span class="n">mi</span><span class="o">/</span><span class="n">pointWriteFormList</span><span class="o">.</span><span class="n">nhn</span><span class="err">?</span><span class="n">code</span><span class="o">=</span><span class="mi">186613</span><span class="o">&amp;</span><span class="nb">type</span><span class="o">=</span><span class="n">after</span><span class="o">&amp;</span><span class="n">isActualPointWriteExecute</span><span class="o">=</span><span class="n">false</span><span class="o">&amp;</span><span class="n">isMileageSubscriptionAlready</span><span class="o">=</span><span class="n">false</span><span class="o">&amp;</span><span class="n">isMileageSubscriptionReject</span><span class="o">=</span><span class="n">false</span><span class="o">&amp;</span><span class="n">page</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 
     </div>
